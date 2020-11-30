@@ -26,13 +26,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   // create a new category
-  const {product_name, price, stock, category_id} = req.body;
-  Category.create({
-    product_name,
-    price, 
-    stock,
-    category_id
-  })
+  Category.create(req.body)
   .then((categories) => res.json(categories))
   .catch((err) => res.status(500).json(err));
 });
